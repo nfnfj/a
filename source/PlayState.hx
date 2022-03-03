@@ -1174,6 +1174,11 @@ class PlayState extends MusicBeatState
 		
 		trace('starting');
 
+		if (curSong == 'Eggnog')
+		{
+                        preload('characters/Parents_assets', 'shared');
+                }
+
 		if (isStoryMode)
 		{
 			switch (curSong.toLowerCase())
@@ -3572,24 +3577,21 @@ class PlayState extends MusicBeatState
 		//stage change
 		if (curSong == 'Eggnog')
 		{
-			sys.thread.Thread.create(function()
+			var creepy = new Character(-400, 100, 'parents-creepy');
+			if (curBeat == 224) 
 			{
-				var creepy = new Character(-400, 100, 'parents-creepy');
-				if (curBeat == 224) 
-				{
-					sky.visible = false;
-					skyCorrupt.visible = true;
-					bgEscalator.visible = false;
-					fgSnow.visible = false;
-					stagecorrupted.visible = true;
-					Boppers2.visible = false;
-					Boppers3.visible = false;
-					gf.visible = false;
-					remove(dad);
-					dad = creepy;
-					add(dad);
-				}
-			});
+				sky.visible = false;
+				skyCorrupt.visible = true;
+				bgEscalator.visible = false;
+				fgSnow.visible = false;
+				stagecorrupted.visible = true;
+				Boppers2.visible = false;
+				Boppers3.visible = false;
+				gf.visible = false;
+				remove(dad);
+				dad = creepy;
+				add(dad);
+			}
 		}
 
 		//fade transition out
@@ -3725,6 +3727,14 @@ class PlayState extends MusicBeatState
 				}
 		}
 
+	}
+
+	public function preload(graphic:String, lib:String) //preload assets
+	{
+		var newthing:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image(graphic, lib));
+		newthing.visible = false;
+		add(newthing);
+		remove(newthing);
 	}
 
 	var curLight:Int = 0;
