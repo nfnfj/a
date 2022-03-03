@@ -88,7 +88,7 @@ class CastomAndroidControls extends MusicBeatState
 		savebutton.color = FlxColor.fromRGB(0,255,0);
 		add(savebutton);
 
-                inputvari = new Alphabet(0, 50, controlitems[curSelected], false, false, 0.05, 0.8);
+                inputvari = new PsychAlphabet(0, 50, controlitems[curSelected], false, false, 0.05, 0.8);
                 inputvari.screenCenter(X);
 		add(inputvari);
 
