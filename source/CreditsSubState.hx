@@ -73,6 +73,8 @@ class CreditsSubState extends MusicBeatState
 
 		changeSelection();
 
+                addVirtualPad(LEFT_RIGHT, A_B_C);
+
 		super.create();
 	}
 
@@ -105,7 +107,7 @@ class CreditsSubState extends MusicBeatState
 					FlxG.openURL("https://twitter.com/tamacoochi");
 			}
 		}
-		if (FlxG.keys.pressed.SHIFT)
+		if (FlxG.keys.pressed.SHIFT #if android || _virtualpad.buttonC.pressed #end)
 		{
 			unselected.visible = false;
 			selection.visible = false;
