@@ -205,6 +205,7 @@ class StoryMenuState extends MusicBeatState
 			add(grpWeekText);
 			add(top);
 			add(nottop);
+                        addVirtualPad(FULL, A_B);
 		});
 
 
