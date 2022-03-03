@@ -137,7 +137,6 @@ class FreeplayState extends MusicBeatState
 
 	public static function addSong(songName:String, weekNum:Int, songCharacter:String)
 	{
-		FlxG.sound.cache(Paths.inst(songName));
 		trace("cached " + songName);
 		songs.push(new SongMetadata(songName, weekNum, songCharacter));
 		bpms.push(Song.loadFromJson(songName, StringTools.replace(songName," ", "-").toLowerCase()).bpm);
