@@ -1,7 +1,6 @@
 package;
 
 import flixel.addons.ui.FlxUIState;
-import sys.thread.Thread;
 import flixel.graphics.FlxGraphic;
 import flixel.FlxG;
 import flixel.util.FlxColor;
@@ -23,8 +22,12 @@ class Init extends FlxUIState
     public static var loadTxt:FlxText;
     var loadingImage:FlxSprite;
 
-	override function create()
-	{   
+    override function create()
+    {
+		#if android
+		FlxG.android.preventDefaultKeys = [BACK];
+		#end
+   
 		loadingImage = new FlxSprite(0,0).loadGraphic(Paths.image('backwall','shared'));
 		loadingImage.updateHitbox();
                 loadingImage.screenCenter();
