@@ -93,6 +93,8 @@ class LoadReplayState extends MusicBeatState
 
 		changeSelection(0);
 
+                addVirtualPad(UP_DOWN, A_B);
+
 		super.create();
 	}
 
