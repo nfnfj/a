@@ -20,7 +20,6 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import io.newgrounds.NG;
 import lime.app.Application;
 import openfl.Assets;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -58,15 +57,6 @@ class TitleState extends MusicBeatState
 		super.create();
 
 		// NGio.noLogin(APIStuff.API);
-
-		#if !desktop
-		FlxG.resetGame();
-		#end
-
-		#if ng
-		var ng:NGio = new NGio(APIStuff.API, APIStuff.EncKey);
-		trace('NEWGROUNDS LOL');
-		#end
 
 		if (FlxG.save.data.weekUnlocked != null)
 		{
@@ -272,14 +262,6 @@ class TitleState extends MusicBeatState
 
 		if (pressedEnter && !transitioning && skippedIntro)
 		{
-			#if !switch
-			NGio.unlockMedal(60960);
-
-			// If it's Friday according to da clock
-			if (Date.now().getDay() == 5)
-				NGio.unlockMedal(61034);
-			#end
-
 			if (FlxG.save.data.flashing)
 				titleText.animation.play('press');
 			FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
