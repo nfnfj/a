@@ -11,7 +11,7 @@ class HelperFunctions
 
 	public static function vocalExists(song:String):Bool
 	{
-		if (FileSystem.exists('assets/songs/' + song.toLowerCase() + '/Voices.ogg'))
+		if (FileSystem.exists(SUtil.getPath() + 'assets/songs/' + song.toLowerCase() + '/Voices.ogg'))
 		{
 			return true;
 		}
