@@ -47,7 +47,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		bf.playAnim('firstDeath');
 
-                addVirtualPad(FULL, A_B);
+                addVirtualPad(NONE, A_B);
                 addPadCamera();
 	}
 
