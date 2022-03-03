@@ -45,12 +45,15 @@ class CutsceneState extends MusicBeatState
 			endIt();
 		else
 		        FlxG.camera.fade(FlxColor.BLACK, 0.8, true);
-			if (PlayState.storyWeek == 5)
-                                var video = new FlxVideo(SUtil.getPath() + Paths.video('CutsceneFinal'));
-				video.finishCallback = function()
-				{
-					FlxG.switchState(new StoryMenuState());							
-				}
+
+		if (PlayState.storyWeek == 5)
+                {
+                        var video = new FlxVideo(SUtil.getPath() + Paths.video('CutsceneFinal'));
+	                video.finishCallback = function()
+			{
+				FlxG.switchState(new StoryMenuState());							
+			}
+                }
 	}
 	
 	override public function update(elapsed:Float):Void 
