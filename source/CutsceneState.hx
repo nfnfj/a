@@ -48,9 +48,9 @@ class CutsceneState extends MusicBeatState
 			if (PlayState.storyWeek == 5)
                                 var video = new FlxVideo(SUtil.getPath() + Paths.video('CutsceneFinal'));
 				video.finishCallback = function()
-                                {
-                                          FlxG.switchState(new StoryMenuState());  
-                                }
+				{
+					FlxG.switchState(new StoryMenuState());							
+				}
 	}
 	
 	override public function update(elapsed:Float):Void 
