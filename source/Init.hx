@@ -43,7 +43,10 @@ class Init extends FlxUIState
 
                 trace('starting caching..');
 
-                cache();
+                sys.thread.Thread.create(() -> 
+                {
+                    cache();
+                });
 
                 super.create();
     }
@@ -112,13 +115,6 @@ class Init extends FlxUIState
 
 		if (StoryMenuState.weekUnlocked[5] || isDebug)
 			FreeplayState.addWeek(['Cocoa', 'Eggnog', 'Hallucination'], 5, ['parents-christmas', 'parents-christmas', 'monster-christmas']);
-
-
-                loadTxt.text = "Loading Sounds";
-
-                FlxG.sound.cache(Paths.sound('missnote1', 'shared'));
-                FlxG.sound.cache(Paths.sound('missnote2', 'shared'));
-                FlxG.sound.cache(Paths.sound('missnote3', 'shared'));
 
                 loadTxt.text = "Loaded Everything";
                 trace("Finished caching...");
