@@ -130,6 +130,7 @@ class FreeplayState extends MusicBeatState
 
 		trace(bpms);
 
+                addVirtualPad(FULL, A_B);
 
 		super.create();
 	}
