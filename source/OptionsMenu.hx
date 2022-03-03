@@ -110,6 +110,9 @@ class OptionsMenu extends MusicBeatState
 			add(grpControls);
 		});
 		changeSelection();
+
+                addVirtualPad(FULL, A_B_X_Y);
+
 		super.create();
 	}
 
@@ -152,34 +155,34 @@ class OptionsMenu extends MusicBeatState
 				
 				if (currentSelectedCat.getOptions()[curSelected].getAccept())
 				{
-					if (FlxG.keys.pressed.SHIFT)
+					if (FlxG.keys.pressed.SHIFT #if android || _virtualpad.buttonX.pressed #end)
 						{
-							if (FlxG.keys.pressed.RIGHT)
+							if (controls.RIGHT)
 								currentSelectedCat.getOptions()[curSelected].right();
-							if (FlxG.keys.pressed.LEFT)
+							if (controls.LEFT)
 								currentSelectedCat.getOptions()[curSelected].left();
 						}
 					else
 					{
-						if (FlxG.keys.justPressed.RIGHT)
+						if (controls.RIGHT_P)
 							currentSelectedCat.getOptions()[curSelected].right();
-						if (FlxG.keys.justPressed.LEFT)
+						if (controls.LEFT_P)
 							currentSelectedCat.getOptions()[curSelected].left();
 					}
 				}
 				else
 				{
 
-					if (FlxG.keys.pressed.SHIFT)
+					if (FlxG.keys.pressed.SHIFT #if android || _virtualpad.buttonX.pressed #end)
 					{
-						if (FlxG.keys.justPressed.RIGHT)
+						if (controls.RIGHT_P)
 							FlxG.save.data.offset += 0.1;
-						else if (FlxG.keys.justPressed.LEFT)
+						else if (controls.LEFT_P)
 							FlxG.save.data.offset -= 0.1;
 					}
-					else if (FlxG.keys.pressed.RIGHT)
+					else if (controls.RIGHT)
 						FlxG.save.data.offset += 0.1;
-					else if (FlxG.keys.pressed.LEFT)
+					else if (controls.LEFT)
 						FlxG.save.data.offset -= 0.1;
 					
 				
@@ -191,21 +194,21 @@ class OptionsMenu extends MusicBeatState
 			}
 			else
 			{
-				if (FlxG.keys.pressed.SHIFT)
+				if (FlxG.keys.pressed.SHIFT #if android || _virtualpad.buttonX.pressed #end)
 					{
-						if (FlxG.keys.justPressed.RIGHT)
+						if (controls.RIGHT_P)
 							FlxG.save.data.offset += 0.1;
-						else if (FlxG.keys.justPressed.LEFT)
+						else if (controls.LEFT_P)
 							FlxG.save.data.offset -= 0.1;
 					}
-					else if (FlxG.keys.pressed.RIGHT)
+					else if (controls.RIGHT)
 						FlxG.save.data.offset += 0.1;
-					else if (FlxG.keys.pressed.LEFT)
+					else if (controls.LEFT)
 						FlxG.save.data.offset -= 0.1;
 			}
 		
 
-			if (controls.RESET)
+			if (controls.RESET #if android || _virtualpad.buttonY.justPressed #end)
 					FlxG.save.data.offset = 0;
 
 			if (controls.ACCEPT)
