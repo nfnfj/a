@@ -108,10 +108,9 @@ class OptionsMenu extends MusicBeatState
 		FlxTween.tween(blackBorder,{y: FlxG.height - 18},2, {ease: FlxEase.elasticInOut});
 		new FlxTimer().start(0.9, function(tmr:FlxTimer) {
 			add(grpControls);
+                        addVirtualPad(FULL, A_B_X_Y);
 		});
 		changeSelection();
-
-                addVirtualPad(FULL, A_B_X_Y);
 
 		super.create();
 	}
