@@ -243,7 +243,7 @@ class DialogueBox extends FlxSpriteGroup
 		dropText.font = 'Pixel Arial 11 Bold';
 		dropText.color = 0xFFD89494;
 		add(dropText);
-		skipText = new FlxText(5, 695, 640, "Press SPACE to skip the dialogue.\n", 40);
+		skipText = new FlxText(5, 695, 640, "Press SPACE / BACK to skip the dialogue.\n", 40);
 		skipText.scrollFactor.set(0, 0);
 		skipText.setFormat(Paths.font("hyeon.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		skipText.borderSize = 2;
@@ -297,14 +297,26 @@ class DialogueBox extends FlxSpriteGroup
 			dialogueStarted = true;
 		}
 
-		if(FlxG.keys.justPressed.SPACE && !isEnding){
+		if(FlxG.keys.justPressed.SPACE 	#if android || FlxG.android.justReleased.BACK #end && !isEnding){
 
 			isEnding = true;
 			endDialogue();
 
 		}
 
-		if (FlxG.keys.justPressed.ANY && dialogueStarted == true && canAdvance && !isEnding)
+		var pressedAny:Bool = FlxG.keys.justPressed.ANY;
+
+		#if android
+		for (touch in FlxG.touches.list)
+		{
+			if (touch.justPressed)
+			{
+				pressedAny = true;
+			}
+		}
+		#end
+
+		if (pressedAny && dialogueStarted == true && canAdvance && !isEnding)
 		{
 			remove(dialogue);
 			canAdvance = false;
