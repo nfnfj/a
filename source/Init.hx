@@ -5,11 +5,10 @@ import flixel.graphics.FlxGraphic;
 import flixel.FlxG;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
-
 import lime.app.Application;
-
+#if desktop
 import Discord.DiscordClient;
-
+#end
 import flixel.FlxSprite;
 
 using StringTools;
