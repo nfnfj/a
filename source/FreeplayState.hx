@@ -100,6 +100,7 @@ class FreeplayState extends MusicBeatState
 			for (i in 0...iconArray.length) {
 				add(iconArray[i]);
 			}
+                        addVirtualPad(FULL, A_B);
 		});
 
 		scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
@@ -129,8 +130,6 @@ class FreeplayState extends MusicBeatState
 		// add(selector);
 
 		trace(bpms);
-
-                addVirtualPad(FULL, A_B);
 
 		super.create();
 	}
