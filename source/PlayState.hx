@@ -1233,6 +1233,10 @@ class PlayState extends MusicBeatState
 		if (!loadRep)
 			rep = new Replay("na");
 
+                FlxG.sound.cache(Paths.sound('missnote1', 'shared'));
+                FlxG.sound.cache(Paths.sound('missnote2', 'shared'));
+                FlxG.sound.cache(Paths.sound('missnote3', 'shared'));
+
 		super.create();
 	}
 
