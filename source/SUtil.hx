@@ -71,8 +71,8 @@ class SUtil
         /*if (!FileSystem.exists(SUtil.getPath() + "mods")){
             SUtil.applicationAlert("Instructions:", "You have to copy assets/mods from apk to your internal storage app directory " + "( here " + SUtil.getPath() + " )" + "if you hadn't have Zarhiver Downloaded, download it and enable the show hidden files option to have the folder visible" + "\n" + "Press Ok To Close The App");
 	    flash.system.System.exit(0);
-        }
-        #end*/
+        }*/
+        #end
     }
 
     //Thanks Forever Engine
